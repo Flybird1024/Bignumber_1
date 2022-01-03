@@ -23,8 +23,7 @@ int main() {
     cout << "輸入第二個數: ";
     cin >> num2;
     n2 = nLength(num2); // 字串 num2 的長度
-    if (op == '+') { // 判斷運算符號並進行對應的計算方式
-        if (n1 < n2) { // 在進行運算之前，若未把最大的數放在最前面，進行計算時將會出現錯誤，所以要將最大的數放在最前面
+    if (n1 < n2) { // 在進行運算之前，若未把最大的數放在最前面，進行計算時將會出現錯誤，所以要將最大的數放在最前面
             swap(num1, num2); // 將 num1 跟 num2 進行交換
             swap(n1, n2); // 將 n1 跟 n2 進行交換
             cout << num2 << op << num1; // 輸出運算方式
@@ -32,6 +31,7 @@ int main() {
         else {
             cout << num1 << op << num2; // 輸出運算方式
         }
+    if (op == '+') { // 判斷運算符號並進行對應的計算方式
         // 運算式
         for (;n2 >= 0;n1--, n2--) {
             a = (num1[n1] - 48) + (num2[n2] - 48) + b;
@@ -40,7 +40,7 @@ int main() {
             answer.push_back(a);
         }
         for (;n1 >= 0;n1--) {
-            a = num1[n1] + b;
+            a = (num1[n1] - 48) + b;
             b = a / 10;
             a = a % 10;
             answer.push_back(a);
